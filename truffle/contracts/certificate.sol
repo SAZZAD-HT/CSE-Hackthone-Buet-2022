@@ -1,4 +1,5 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4.22 <0.9.0;
 contract certificate {
     uint public taskCount=0;
     struct task{
@@ -10,11 +11,31 @@ contract certificate {
          string certificate_type;
          address certificate_owner;
     }
+    uint id;
+        string content;
+        bool completed;
+        string certificate_assign_date;
+        string certificate_expire_date;
+         string certificate_type;
+         address certificate_owner;
     mapping(uint => task) public tasks;
     constructor() public{
         addTask("task1");
     }
-  function set_certificate_type(string type) public{
+  function set_certificate_type(string  typ) public {
+      typ=certificate_type;
+
+   }
+    function set_certificate_owner(string own) public{
+      own=certificate_owner;
+
+   }
+    function set_certificate_assign_date(string asndt) public{
+      asndt=certificate_assign_date;
+
+   }
+    function set_certificate_type(string expirdt) public{
+      expirdt=certificate_expire_date;
 
    }
     event TaskCreated(
@@ -22,6 +43,12 @@ contract certificate {
     string content,
     bool completed
   );
+  function get_certificate_type(string) public {
+      return set_certificate_type;
+  }
+   function get_certificate_type(string)public{
+      return set_certificate_type;
+  }
 
   event TaskCompleted(
     uint id,
